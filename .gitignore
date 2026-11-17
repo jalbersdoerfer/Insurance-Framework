@@ -1,0 +1,26 @@
+# Virtual environment
+.venv/
+
+# Raw data
+data/raw/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# PyCharm
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Test cache
+.pytest_cache/
+
+# Coverage
+htmlcov/
+.coverage
