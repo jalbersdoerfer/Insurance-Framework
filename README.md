@@ -14,10 +14,9 @@ The framework currently focuses on term life insurance and can be extended to ot
 
 - Mortality modelling based on empirical mortality tables
 - Calculation of annual death and survival probabilities
-- Simulation of individual lifetimes using Monte Carlo methods
 - Expected present value of insurance benefits
-- Calculation of net premiums using the equivalence principle
-- Data preprocessing and validation
+- Calculation of net premiums for term life insurance using the equivalence principle
+- Calculation of prospective reserve for term life insurance contract
 
 ## Actuarial Concepts
 
@@ -27,9 +26,9 @@ The current implementation covers:
 - Annual survival probabilities (px)
 - Deferred death probabilities
 - Discounting and present value calculations
-- Temporary life annuities-due
-- Net single and annual premiums
+- Annual premiums
 - Equivalence principle
+- Prospective reserve calculations
 
 ## Data
 

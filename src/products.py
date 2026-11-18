@@ -64,6 +64,11 @@ class TermLifeInsurance:
     def net_premium(self, age: int, gender: str) -> float: 
         """
         Calculates the annual net premium using the equivalence principle.
+
+        Assumptions:
+        - Premiums are paid annually in advance
+        - The death benefit is paid at the end of the year of death
+        - No expenses, commissions or additional benefits
         """
 
         # Get the expected present value of the benefits for given age and gender
@@ -73,3 +78,53 @@ class TermLifeInsurance:
         premium_factor = self.premium_annuity_factor(age, gender)
 
         return epv_benefit / premium_factor
+
+    def prospective_reserve(self, age: int, gender: str, t: int) -> float:
+        """
+        Calculates the prospective reserve at time t.
+
+        The reserve is calculated immediately after the premium payment at time t.
+
+        Assumptions:
+        - Premiums are paid annually in advance
+        - The death benefit is paid at the end of the year of death
+        - The original net premium is used throughout the contract
+        - No expenses, commissions or additional benefits
+        """
+
+        # Check if t is a valid contract duration
+        if not isinstance(t, int):
+            raise ValueError("t must be an integer.")
+
+        if t < 0 or t > self.term:
+            raise ValueError("t must be between 0 and the contract term.")
+
+        # No future benefits or premiums remain at maturity
+        if t == self.term:
+            return 0.0
+
+        # Remaining contract term
+        remaining_term = self.term - t
+
+        # Current age of the insured person
+        current_age = age + t
+
+        # Calculate the original annual net premium
+        premium = self.net_premium(age, gender)
+
+        # Calculate EPV of future benefits
+        epv_benefits = 0.0
+        for k in range(1, remaining_term + 1):
+            death_probability = self.mortality_table.get_death_probability(current_age, gender, k)
+            epv_benefits += (self.discount_factor ** k) * death_probability
+        epv_benefits *= self.death_benefit
+
+        # Calculate EPV of future premiums
+        epv_premiums = 0.0
+        for k in range(remaining_term):
+            survival_probability = self.mortality_table.get_survival_probability(current_age, gender, k)
+            epv_premiums += (self.discount_factor ** k) * survival_probability
+            epv_premiums *= premium
+
+        # Prospective reserve = EPV(future benefits) - EPV(future premiums)
+        return epv_benefits - epv_premiums
