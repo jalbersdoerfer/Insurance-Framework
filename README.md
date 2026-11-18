@@ -77,6 +77,7 @@ of the contract.
 It compares male and female policyholders using gender-specific mortality assumptions.
 
 The analysis uses the equivalence principle to calculate annual net premiums for a 10-year term life insurance contract.
+Model assumptions are described in the notebook.
 
 ![Term Life Insurance Premium by Age](reports/figures/net_premium_TLI_by_age.png)
 ![Prospective Reserve over Contract Duration](reports/figures/prospective_reserve_TLI_over_years.png)
