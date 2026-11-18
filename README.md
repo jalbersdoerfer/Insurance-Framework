@@ -64,6 +64,15 @@ The implementation assumes:
 
 The mortality assumptions are based on the selected population mortality table and do not necessarily represent insured-life mortality.
 
+## Analysis
+The notebook 01_term_life_pricing.ipynb demonstrates how annual net premiums vary with the entry age of the insured person.
+
+It compares male and female policyholders using gender-specific mortality assumptions.
+
+The analysis uses the equivalence principle to calculate annual net premiums for a 10-year term life insurance contract.
+
+![Term Life Insurance Premium by Age](reports/figures/net_premium_TLI_by_age.png)
+
 ## Future Development
 
 Planned extensions include:
