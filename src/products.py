@@ -83,7 +83,7 @@ class TermLifeInsurance:
         """
         Calculates the prospective reserve at time t.
 
-        The reserve is calculated immediately after the premium payment at time t.
+        The reserve is calculated immediately before the premium payment at time t.
 
         Assumptions:
         - Premiums are paid annually in advance
@@ -124,7 +124,7 @@ class TermLifeInsurance:
         for k in range(remaining_term):
             survival_probability = self.mortality_table.get_survival_probability(current_age, gender, k)
             epv_premiums += (self.discount_factor ** k) * survival_probability
-            epv_premiums *= premium
+        epv_premiums *= premium
 
         # Prospective reserve = EPV(future benefits) - EPV(future premiums)
         return epv_benefits - epv_premiums
