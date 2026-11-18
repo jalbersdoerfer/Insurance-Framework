@@ -64,7 +64,13 @@ The implementation assumes:
 The mortality assumptions are based on the selected population mortality table and do not necessarily represent insured-life mortality.
 
 ## Analysis
-The notebook 01_term_life_analysis.ipynb demonstrates how annual net premiums vary with the entry age of the insured person and 
+The notebook 01_mortality_probabilities.ipynb visualizes the one-year death probabilities $q_x$ and survival probabilities 
+$p_x$ from the mortality table across all available ages. Both probabilities are plotted separately for males and females to illustrate 
+mortality patterns and gender differences by age. The survival probabilities are derived from the death probabilities using $p_x = 1 - q_x$.
+
+![Death and Survival Probabilities](reports/figures/death_and_survival_probabilities_by_age.png)
+
+The notebook 02_term_life_analysis.ipynb demonstrates how annual net premiums vary with the entry age of the insured person and 
 how the prospective reserves change over the lifetime of a contract with a policyholder that is fifty years old at the beginning
 of the contract.
 
