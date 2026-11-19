@@ -29,6 +29,7 @@ The current implementation covers:
 - Annual premiums
 - Equivalence principle
 - Prospective reserve calculations
+- Monte-Carlo-Portfolio-Simulation
 
 ## Data
 
@@ -99,5 +100,4 @@ Planned extensions include:
 - Annuity products
 - Gross premium calculations
 - Technical provisions and prospective reserves
-- Monte Carlo portfolio simulations
 - Sensitivity and scenario analysis
