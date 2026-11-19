@@ -82,6 +82,14 @@ Model assumptions are described in the notebook.
 ![Term Life Insurance Premium by Age](reports/figures/net_premium_TLI_by_age.png)
 ![Prospective Reserve over Contract Duration](reports/figures/prospective_reserve_TLI_over_years.png)
 
+The notebook 03_portfolio_simulation.ipynb samples a portfolio of 100000 identical insurance contracts and compares the 
+sample mean of the present value of claims against the theoretical expected present value of claims of the contract. It 
+also contains a Monte-Carlo-Simulation of 1000 such portfolios and visualizes the sample distribution of the present value
+of the total portfolio claims. All results are reported separately for male and female policyholders.
+
+![Distribution of death age samples](reports/figures/distribution_of_death_age_samples.png)
+![Distribution of total portfolio claims](reports/figures/distribution_total_portfolio_claims.png)
+
 ## Future Development
 
 Planned extensions include:
